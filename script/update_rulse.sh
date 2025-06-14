@@ -2,7 +2,7 @@
 
 # Git 저장소와 룰셋 경로 설정
 REPO_DIR="$HOME/IDS_Ruleset"
-REMOTE_RULE="$REPO_DIR/ruleset/ids.rules"
+REMOTE_RULE="$REPO_DIR/ruleset/snort/ids.rules"
 LOCAL_RULE="/home/noclass/capstone/snort3/ruleset/ids.rules"
 
 echo "[+] Git 저장소에서 최신 룰셋 가져오는 중..."
