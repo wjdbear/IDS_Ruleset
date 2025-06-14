@@ -1,0 +1,6 @@
+alert icmp any any -> any any (msg:"ICMP Ping 탐지"; sid:1000001; rev:1;)
+alert tcp any any -> any 22 (msg:"SSH 접근 탐지"; sid:1000002; rev:1;)
+alert tcp any any -> any 80 (msg:"HTTP 접근 탐지"; sid:1000003; rev:1;)
+alert tcp any any -> $HOME_NET 8080 (msg:"Shinobi 로그인 시도 감지"; flow:to_server,established; content:"POST /auth"; http_method; sid:1000004; rev:1;)
+alert udp any any -> any 161 (msg:"SNMP Scan 탐지"; sid:1000005; rev:1;)
+alert tcp any any -> any 554 (msg:"RTSP 접근 탐지"; sid:1000006; rev:1;)
