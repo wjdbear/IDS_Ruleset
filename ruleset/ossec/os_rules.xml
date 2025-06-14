@@ -1,0 +1,38 @@
+<group name="ids_custom,">
+  
+  <!-- 1. SSH 로그인 실패 탐지 -->
+  <rule id="100100" level="10">
+    <if_sid>5710</if_sid>
+    <match>Failed password</match>
+    <description>SSH 로그인 실패 탐지</description>
+  </rule>
+
+  <!-- 2. sudo 권한 사용 탐지 -->
+  <rule id="100101" level="8">
+    <if_sid>5300</if_sid>
+    <match>sudo</match>
+    <description>sudo 명령어 사용 감지</description>
+  </rule>
+
+  <!-- 3. Shinobi 로그인 시도 감지 -->
+  <rule id="100102" level="7">
+    <if_sid>1002</if_sid> <!-- generic syslog -->
+    <match>POST /auth</match>
+    <description>Shinobi 로그인 시도 탐지</description>
+  </rule>
+
+  <!-- 4. 카메라 RTSP 스트림 접근 감지 (554포트 접근 로그 기반) -->
+  <rule id="100103" level="9">
+    <if_sid>1002</if_sid>
+    <match>554</match>
+    <description>RTSP 포트(554) 접근 탐지</description>
+  </rule>
+
+  <!-- 5. root 사용자로 로그인 탐지 -->
+  <rule id="100104" level="12">
+    <if_sid>5501</if_sid>
+    <match>root</match>
+    <description>root 사용자 로그인 감지</description>
+  </rule>
+
+</group>
